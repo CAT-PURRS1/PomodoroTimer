@@ -10,64 +10,52 @@
     body.theme-default { --bg-body: #f4f4f4; --bg-container: #fff; --color-primary: #333; --color-timer: #444; --btn-start: #4CAF50; --btn-pause: #f39c12; --btn-reset: #e74c3c; }
     body.theme-dark    { --bg-body: #2c3e50; --bg-container: #34495e; --color-primary: #ecf0f1; --color-timer: #bdc3c7; --btn-start: #16a085; --btn-pause: #f39c12; --btn-reset: #c0392b; }
     body.theme-ocean   { --bg-body: #00acc1; --bg-container: #e0f7fa; --color-primary: #004d40; --color-timer: #006064; --btn-start: #00838f; --btn-pause: #006064; --btn-reset: #004d40; }
-    body.theme-sunset  { --bg-body:#feac3180 ; --bg-container:#ffe0b280 ; --color-primary: #bf360c; --color-timer: #e65100; --btn-start:#ef6c00; --btn-pause:  #f57c00; --btn-reset: #d84315; }
-    body.theme-forest  { --bg-body:#388e3c ; --bg-container:#a5d6a7 ; --color-primary: #1b5e20; --color-timer: #2e7d32; --btn-start:#388e3c; --btn-pause: #fbc02d; --btn-reset: #d32f2f; }
-    body.theme-pastel  { --bg-body:#f8bbd0 ; --bg-container:#fce4ec ; --color-primary: #880e4f; --color-timer: #ad1457; --btn-start: #e91e63; --btn-pause: #c2185b; --btn-reset: #d81b60; }
+    body.theme-sunset  { --bg-body: rgba(254,172,49,0.5); --bg-container: rgba(255,224,178,0.5); --color-primary: #bf360c; --color-timer: #e65100; --btn-start: #ef6c00; --btn-pause: #f57c00; --btn-reset: #d84315; }
+    body.theme-forest  { --bg-body: #388e3c; --bg-container: #a5d6a7; --color-primary: #1b5e20; --color-timer: #2e7d32; --btn-start: #388e3c; --btn-pause: #fbc02d; --btn-reset: #d32f2f; }
+    body.theme-pastel  { --bg-body: #f8bbd0; --bg-container: #fce4ec; --color-primary: #880e4f; --color-timer: #ad1457; --btn-start: #e91e63; --btn-pause: #c2185b; --btn-reset: #d81b60; }
     body.theme-midnight{ --bg-body: #121212; --bg-container: #1f1b24; --color-primary: #bb86fc; --color-timer: #cf6679; --btn-start: #03dac6; --btn-pause: #fbc02d; --btn-reset: #cf6679; }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family: Arial, sans-serif;
-      background: var(--bg-body);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 1rem;
-      transition: background .3s;
-      overflow-y: auto;
-    }
-    @media (max-height: 600px) {
-      body { align-items: flex-start; }
-      .container { margin-top: 1rem; margin-bottom: 1rem; }
-    }
-    .container{
-      background: var(--bg-container);
-      width: 90%;
-      max-width: 500px;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
-      color: var(--color-primary);
-    }
-    .tabs{display:flex;border-bottom:2px solid #ccc;margin-bottom:1rem}
-    .tabs button{flex:1;padding:1rem;font-size:1.4rem;border:none;background:transparent;cursor:pointer;transition:background .2s;color:var(--color-primary)}
-    .tabs button.active{background:rgba(0,0,0,.05)}
-    .panel{display:none}.panel.active{display:block}
-    h1{text-align:center;font-size:3rem;color:var(--color-primary);margin-bottom:1rem}
-    #mode-label{text-align:center;font-size:2rem;color:var(--color-primary);margin-bottom:1rem}
-    #timer{text-align:center;font-size:6rem;color:var(--color-timer);margin:1.5rem 0}
-    .buttons{display:flex;flex-direction:column;align-items:center}.main-controls{margin:.75rem 0}.break-controls{margin:.75rem 0;display:flex;gap:1rem}
-    .buttons button{padding:1rem 2rem;font-size:1.6rem;border:none;border-radius:6px;cursor:pointer;color:#fff;transition:opacity .2s}
-    .buttons button:hover{opacity:.9}
-    #start-pause{background:var(--btn-start)}#reset{background:var(--btn-reset);display:none}
-    #short-break-btn{background:var(--btn-pause)}#long-break-btn{background:var(--btn-reset)}
-    .tasks{margin-top:2rem}.tasks h2{font-size:1.6rem;color:var(--color-primary);margin-bottom:.5rem}
-    .task-input{display:flex}
-    .task-input input{flex:1;padding:.5rem;font-size:1rem;border:1px solid #ccc;border-radius:4px 0 0 4px;color:#000}
-    .task-input button{padding:.5rem 1rem;font-size:1rem;border:none;border-radius:0 4px 4px 0;background:var(--btn-start);color:#fff;cursor:pointer}
-    .tasks-list{list-style:none;margin-top:1rem;max-height:150px;overflow-y:auto;}
-    .tasks-list li{padding:.5rem;border-bottom:1px solid #eee;display:flex;justify-content:space-between;align-items:center}
-    .tasks-list li span{flex:1;color:var(--color-primary)}
-    .tasks-list button{background:transparent;border:none;font-size:1.2rem;cursor:pointer;margin-left:.5rem}
-    .tasks-list .done-btn{color:#27ae60}.tasks-list .delete-btn{color:#e74c3c}
-    .tasks-list li.completed span{text-decoration:line-through;color:#888}
-    .settings{display:flex;flex-direction:column;gap:1.5rem}.settings label{font-size:1.6rem;color:var(--color-primary);display:flex;justify-content:space-between;align-items:center}
-    .settings input{width:80px;padding:.5rem;border:1px solid #ccc;border-radius:6px;font-size:1.6rem;text-align:center;color:#000}
-    .theme-selector{display:flex;justify-content:space-between;align-items:center;margin-top:1.5rem}
-    .theme-selector select{padding:.75rem;border:1px solid #ccc;border-radius:6px;font-size:1.6rem;color:#000}
-    .alarm-popup{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);display:none;justify-content:center;align-items:center}
-    .alarm-popup .popup-content{background:var(--bg-container);padding:2rem;border-radius:8px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.2)}
-    .alarm-popup button{margin-top:1rem;padding:.75rem 1.5rem;font-size:1rem;border:none;border-radius:6px;cursor:pointer;background:var(--btn-reset);color:#fff}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: var(--bg-body); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 1rem; transition: background .3s; overflow-y: auto; }
+    @media (max-height: 600px) { body { align-items: flex-start; } .container { margin: 1rem 0; } }
+    .container { background: var(--bg-container); width: 90%; max-width: 500px; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.1); color: var(--color-primary); margin-top: 0; }
+    .tabs { display: flex; border-bottom: 2px solid #ccc; margin-bottom: 1rem; }
+    .tabs button { flex: 1; padding: 1rem; font-size: 1.2rem; border: none; background: transparent; cursor: pointer; transition: background .2s; color: var(--color-primary); }
+    .tabs button.active { background: rgba(0,0,0,0.05); }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    h1 { text-align: center; font-size: 2.5rem; margin-bottom: 0.5rem; }
+    #mode-label { text-align: center; font-size: 1.2rem; margin-bottom: 1rem; }
+    #timer { text-align: center; font-size: 4rem; margin: 1rem 0; color: var(--color-timer); }
+    .buttons { display: flex; flex-direction: column; align-items: center; }
+    .main-controls, .break-controls { margin: 0.5rem 0; display: flex; gap: 1rem; }
+    .buttons button { padding: 0.75rem 1.5rem; font-size: 1rem; border: none; border-radius: 6px; cursor: pointer; color: #fff; transition: opacity .2s; }
+    .buttons button:hover { opacity: 0.9; }
+    #start-pause { background: var(--btn-start); }
+    #reset { background: var(--btn-reset); display: none; }
+    #short-break-btn { background: var(--btn-pause); }
+    #long-break-btn { background: var(--btn-reset); }
+    .tasks { margin-top: 1.5rem; }
+    .tasks h2 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+    .task-input { display: flex; }
+    .task-input input { flex: 1; padding: 0.5rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px 0 0 4px; }
+    .task-input button { padding: 0.5rem 1rem; font-size: 1rem; border: none; border-radius: 0 4px 4px 0; background: var(--btn-start); color: #fff; cursor: pointer; }
+    .tasks-list { list-style: none; margin-top: 0.5rem; max-height: 150px; overflow-y: auto; }
+    .tasks-list li { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem; border-bottom: 1px solid #eee; }
+    .tasks-list li span { flex: 1; }
+    .tasks-list button { background: none; border: none; font-size: 1.2rem; cursor: pointer; }
+    .done-btn { color: #27ae60; }
+    .delete-btn { color: #e74c3c; }
+    .tasks-list li.completed span { text-decoration: line-through; color: #888; }
+    .settings { display: flex; flex-direction: column; gap: 1rem; margin-bottom: 1rem; }
+    .settings label { display: flex; justify-content: space-between; align-items: center; font-size: 1rem; }
+    .settings input { width: 60px; padding: 0.25rem; font-size: 1rem; text-align: center; border: 1px solid #ccc; border-radius: 4px; }
+    .theme-selector { display: flex; justify-content: space-between; align-items: center; }
+    .theme-selector select { padding: 0.5rem; font-size: 1rem; border: 1px solid #ccc; border-radius: 4px; }
+    .stats { border-top: 1px solid #ccc; padding-top: 1rem; font-size: 1rem; }
+    .stats div { margin-bottom: 0.5rem; }
+    .alarm-popup { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: none; justify-content: center; align-items: center; z-index: 1000; }
+    .alarm-popup .popup-content { background: var(--bg-container); padding: 1.5rem; border-radius: 8px; text-align: center; }
+    .alarm-popup button { margin-top: 0.5rem; padding: 0.5rem 1rem; border: none; border-radius: 4px; background: var(--btn-reset); color: #fff; cursor: pointer; }
   </style>
 </head>
 <body class="theme-default">
@@ -102,21 +90,21 @@
       <div class="tasks">
         <h2>Tasks</h2>
         <div class="task-input">
-          <input id="task-input" type="text" placeholder="Add a task..." />
+          <input id="task-input" type="text" placeholder="Add a task...">
           <button id="add-task-btn">Add</button>
         </div>
         <ul id="tasks-list" class="tasks-list"></ul>
       </div>
     </div>
     <div id="panel-settings" class="panel">
-      <h1>Settings</h1>
+      <h1>Settings & Stats</h1>
       <div class="settings">
-        <label for="duration-input">Session (min): <input id="duration-input" type="number" min="1" value="25"></label>
-        <label for="short-break-input">Short Break (min): <input id="short-break-input" type="number" min="1" value="5"></label>
-        <label for="long-break-input">Long Break (min): <input id="long-break-input" type="number" min="1" value="15"></label>
+        <label>Session (min): <input id="duration-input" type="number" min="1" value="25"></label>
+        <label>Short Break (min): <input id="short-break-input" type="number" min="1" value="5"></label>
+        <label>Long Break (min): <input id="long-break-input" type="number" min="1" value="15"></label>
       </div>
       <div class="theme-selector">
-        <label for="theme-select">Theme:</label>
+        <label>Theme:</label>
         <select id="theme-select">
           <option value="theme-default">Default</option>
           <option value="theme-dark">Dark</option>
@@ -127,10 +115,14 @@
           <option value="theme-midnight">Midnight</option>
         </select>
       </div>
+      <div class="stats">
+        <div>Total Work Sessions: <span id="stat-sessions">0</span></div>
+        <div>Tasks Completed: <span id="stat-tasks">0</span></div>
+      </div>
     </div>
   </div>
   <script>
-    // Elements
+    // DOM Elements
     const tabTimer = document.getElementById('tab-timer');
     const tabSettings = document.getElementById('tab-settings');
     const panelTimer = document.getElementById('panel-timer');
@@ -154,151 +146,161 @@
     const addTaskBtn = document.getElementById('add-task-btn');
     const tasksList = document.getElementById('tasks-list');
     const themeSelect = document.getElementById('theme-select');
+    const statSessions = document.getElementById('stat-sessions');
+    const statTasks = document.getElementById('stat-tasks');
 
-    // Popup handlers
-    function showPopup(message) {
-      popupText.textContent = message;
-      popup.style.display = 'flex';
-    }
-    stopBtn.addEventListener('click', () => {
-      pomodoroAlarm.pause();
-      breakAlarm.pause();
-      popup.style.display = 'none';
-    });
-
-    // Tab switching
-    tabTimer.addEventListener('click', () => {
-      tabTimer.classList.add('active');
-      tabSettings.classList.remove('active');
-      panelTimer.classList.add('active');
-      panelSettings.classList.remove('active');
-    });
-
-    tabSettings.addEventListener('click', () => {
-      tabSettings.classList.add('active');
-      tabTimer.classList.remove('active');
-      panelSettings.classList.add('active');
-      panelTimer.classList.remove('active');
-    });
-
-    // Pomodoro logic
+    // State
     let workMinutes, workSeconds, timerInterval;
     let isRunning = false;
     let mode = 'session';
-    let sessionsCompleted = 0;
+    let sessionsCompleted = parseInt(localStorage.getItem('pomodoroSessions')) || 0;
+    let tasksDone = parseInt(localStorage.getItem('pomodoroTasksDone')) || 0;
 
-    function initDurations() {
-      if (mode === 'session') workMinutes = parseInt(durationInput.value) || 25;
-      else if (mode === 'short-break') workMinutes = parseInt(shortBreakInput.value) || 5;
-      else workMinutes = parseInt(longBreakInput.value) || 15;
-      workSeconds = 0;
-      modeLabel.textContent = mode === 'session' ? 'Session' : mode === 'short-break' ? 'Short Break' : 'Long Break';
-    }
-
-    // Update both the on-page timer and the browser tab title
-function updateDisplay() {
-      // 1️⃣ Format minutes and seconds
-      const mm = workMinutes < 10 ? '0' + workMinutes : workMinutes;
-      const ss = workSeconds < 10 ? '0' + workSeconds : workSeconds;
-      const timeString = `${mm}:${ss}`;
-
-      // 2️⃣ Update the visible timer element
-      timerDisplay.textContent = timeString;
-
-      // 3️⃣ ALSO update the browser tab title here:
-      //    Shows the mode and countdown in the title bar
-      document.title = `${mode === 'session' ? 'Session' : mode === 'short-break' ? 'Short Break' : 'Long Break'} ${timeString} - Pomodoro Timer`;
-    }
-
-    function manualSwitch(newMode) {
-      clearInterval(timerInterval);
-      isRunning = false;
-      mode = newMode;
-      initDurations();
-      updateDisplay();
-      startPauseBtn.textContent = 'Start';
-      resetBtn.style.display = 'none';
-    }
-
-    function switchMode() {
-      clearInterval(timerInterval);
-      isRunning = false;
-      if (mode === 'session') {
-        sessionsCompleted++;
-        mode = sessionsCompleted % 4 === 0 ? 'long-break' : 'short-break';
-        breakAlarm.currentTime = 0;
-        breakAlarm.play();
-        showPopup('Break Time!');
-      } else {
-        mode = 'session';
-        pomodoroAlarm.currentTime = 0;
-        pomodoroAlarm.play();
-        showPopup('Work Session!');
+    // Settings persistence
+    function loadSettings() {
+      popup.style.display = 'none';
+      pomodoroAlarm.pause();
+      breakAlarm.pause();
+      const s = localStorage.getItem('pomodoroSettings');
+      if (s) {
+        const cfg = JSON.parse(s);
+        durationInput.value = cfg.session;
+        shortBreakInput.value = cfg.short;
+        longBreakInput.value = cfg.long;
+        themeSelect.value = cfg.theme;
+        document.body.className = cfg.theme;
       }
-      initDurations();
-      updateDisplay();
-      startPauseBtn.textContent = 'Start';
-      resetBtn.style.display = 'none';
+      updateStatsDisplay();
+    }
+    function saveSettings() {
+      const cfg = { session: parseInt(durationInput.value)||25, short: parseInt(shortBreakInput.value)||5, long: parseInt(longBreakInput.value)||15, theme: themeSelect.value };
+      localStorage.setItem('pomodoroSettings', JSON.stringify(cfg));
     }
 
-    function toggleTimer() {
-      if (!isRunning) {
-        isRunning = true;
-        startPauseBtn.textContent = 'Pause';
-        resetBtn.style.display = 'inline-block';
-        timerInterval = setInterval(() => {
-          if (workSeconds === 0) {
-            if (workMinutes === 0) return switchMode();
-            workMinutes--;
-            workSeconds = 59;
-          } else {
-            workSeconds--;
-          }
-          updateDisplay();
-        }, 1000);
-      } else {
-        clearInterval(timerInterval);
-        isRunning = false;
-        startPauseBtn.textContent = 'Start';
+    // Task persistence
+    function loadTasks() {
+      const t = localStorage.getItem('pomodoroTasks');
+      if (t) {
+        JSON.parse(t).forEach(item => addTask(item.text, item.completed));
       }
     }
-
-    function playClick() {
-      clickSound.currentTime = 0;
-      clickSound.play();
+    function saveTasks() {
+      const arr = [];
+      tasksList.querySelectorAll('li').forEach(li => {
+        arr.push({ text: li.querySelector('span').textContent, completed: li.classList.contains('completed') });
+      });
+      localStorage.setItem('pomodoroTasks', JSON.stringify(arr));
     }
-
-    // Event listeners
-    startPauseBtn.addEventListener('click', () => { playClick(); toggleTimer(); });
-    resetBtn.addEventListener('click', () => { playClick(); manualSwitch('session'); });
-    shortBreakBtn.addEventListener('click', () => { playClick(); manualSwitch('short-break'); });
-    longBreakBtn.addEventListener('click', () => { playClick(); manualSwitch('long-break'); });
-
-    // Tasks
-    addTaskBtn.addEventListener('click', () => {
-      playClick();
-      const text = taskInput.value.trim();
-      if (!text) return;
+    function addTask(text, completed=false) {
       const li = document.createElement('li');
       const span = document.createElement('span'); span.textContent = text;
-      const doneBtn = document.createElement('button'); doneBtn.textContent = '✓'; doneBtn.className = 'done-btn';
-      doneBtn.addEventListener('click', () => { playClick(); li.classList.toggle('completed'); });
-      const delBtn = document.createElement('button'); delBtn.textContent = '✕'; delBtn.className = 'delete-btn';
-      delBtn.addEventListener('click', () => { playClick(); li.remove(); });
+      const doneBtn = document.createElement('button'); doneBtn.className='done-btn'; doneBtn.textContent='✓';
+      doneBtn.addEventListener('click', () => {
+        clickSound.currentTime = 0; clickSound.play();
+        if (!li.classList.contains('completed')) {
+          tasksDone++; localStorage.setItem('pomodoroTasksDone', tasksDone);
+          updateStatsDisplay();
+        }
+        li.classList.toggle('completed'); saveTasks();
+      });
+      const delBtn = document.createElement('button'); delBtn.className='delete-btn'; delBtn.textContent='✕';
+      delBtn.addEventListener('click', () => { clickSound.currentTime = 0; clickSound.play(); li.remove(); saveTasks(); });
       li.append(span, doneBtn, delBtn);
-      tasksList.append(li);
-      taskInput.value = '';
-    });
+      if (completed) li.classList.add('completed');
+      tasksList.appendChild(li);
+    }
 
-    // Init
-    tabTimer.click();
-    manualSwitch('session');
+    // Timer persistence
+    function saveTimerState() {
+      const remaining = workMinutes*60 + workSeconds;
+      localStorage.setItem('pomodoroTimer', JSON.stringify({ mode, remaining, isRunning, lastUpdate: Date.now() }));
+    }
+    function loadTimer() {
+      const s = localStorage.getItem('pomodoroTimer');
+      if (s) {
+        const t = JSON.parse(s);
+        mode = t.mode || 'session';
+        let rem = t.remaining != null ? t.remaining : parseInt(durationInput.value)*60;
+        if (t.isRunning) {
+          const elapsed = Math.floor((Date.now() - t.lastUpdate)/1000);
+          rem -= elapsed;
+        }
+        if (rem < 0) rem = 0;
+        workMinutes = Math.floor(rem/60);
+        workSeconds = rem % 60;
+        modeLabel.textContent = mode==='session'?'Session':mode==='short-break'?'Short Break':'Long Break';
+        updateDisplay();
+        if (t.isRunning) { toggleTimer(); }
+      } else {
+        initDurations(); updateDisplay();
+      }
+    }
+
+    // Stats
+    function updateStatsDisplay() { statSessions.textContent = sessionsCompleted; statTasks.textContent = tasksDone; }
+
+    // Popup
+    stopBtn.addEventListener('click', () => { pomodoroAlarm.pause(); breakAlarm.pause(); popup.style.display='none'; saveTimerState(); });
+    function showPopup(msg) { popupText.textContent = msg; popup.style.display='flex'; saveTimerState(); }
+
+    // Tabs
+    tabTimer.addEventListener('click', () => { tabTimer.classList.add('active'); tabSettings.classList.remove('active'); panelTimer.classList.add('active'); panelSettings.classList.remove('active'); });
+    tabSettings.addEventListener('click', () => { tabSettings.classList.add('active'); tabTimer.classList.remove('active'); panelSettings.classList.add('active'); panelTimer.classList.remove('active'); });
+
+    // Timer
+    function initDurations() {
+      if (mode==='session') workMinutes = parseInt(durationInput.value)||25;
+      else if (mode==='short-break') workMinutes = parseInt(shortBreakInput.value)||5;
+      else workMinutes = parseInt(longBreakInput.value)||15;
+      workSeconds = 0;
+      modeLabel.textContent = mode==='session'?'Session':mode==='short-break'?'Short Break':'Long Break';
+    }
+    function updateDisplay() {
+      const mm = workMinutes<10? '0'+workMinutes: workMinutes;
+      const ss = workSeconds<10? '0'+workSeconds: workSeconds;
+      timerDisplay.textContent = `${mm}:${ss}`;
+      document.title = `${mode==='session'?'Session':mode==='short-break'?'Short Break':'Long Break'} ${mm}:${ss}`;
+    }
+    function switchMode() {
+      clearInterval(timerInterval); isRunning=false;
+      if (mode==='session') {
+        sessionsCompleted++; localStorage.setItem('pomodoroSessions', sessionsCompleted);
+        mode = sessionsCompleted%4===0? 'long-break':'short-break'; breakAlarm.currentTime=0; breakAlarm.play(); showPopup('Break Time!');
+      } else {
+        mode='session'; pomodoroAlarm.currentTime=0; pomodoroAlarm.play(); showPopup('Work Session!');
+      }
+      updateStatsDisplay(); initDurations(); updateDisplay(); startPauseBtn.textContent='Start'; resetBtn.style.display='none'; saveTimerState();
+    }
+    function toggleTimer() {
+      if (!isRunning) {
+        isRunning=true; startPauseBtn.textContent='Pause'; resetBtn.style.display='inline-block';
+        timerInterval=setInterval(() => {
+          if (workSeconds===0) {
+            if (workMinutes===0) return switchMode();
+            workMinutes--; workSeconds=59;
+          } else workSeconds--;
+          updateDisplay(); saveTimerState();
+        },1000);
+      } else {
+        clearInterval(timerInterval); isRunning=false; startPauseBtn.textContent='Start'; saveTimerState();
+      }
+    }
+    startPauseBtn.addEventListener('click', () => { clickSound.currentTime=0; clickSound.play(); toggleTimer(); });
+    resetBtn.addEventListener('click', () => { clickSound.currentTime=0; clickSound.play(); mode='session'; initDurations(); updateDisplay(); startPauseBtn.textContent='Start'; resetBtn.style.display='none'; saveTimerState(); });
+    shortBreakBtn.addEventListener('click', () => { clickSound.currentTime=0; clickSound.play(); mode='short-break'; initDurations(); updateDisplay(); startPauseBtn.textContent='Start'; resetBtn.style.display='none'; saveTimerState(); });
+    longBreakBtn.addEventListener('click', () => { clickSound.currentTime=0; clickSound.play(); mode='long-break'; initDurations(); updateDisplay(); startPauseBtn.textContent='Start'; resetBtn.style.display='none'; saveTimerState(); });
+
+    // Task handlers
+    addTaskBtn.addEventListener('click', () => { clickSound.currentTime=0; clickSound.play(); const t=taskInput.value.trim(); if(!t) return; addTask(t,false); taskInput.value=''; saveTasks(); });
 
     // Settings listeners
-    durationInput.addEventListener('change', () => manualSwitch(mode));
-    shortBreakInput.addEventListener('change', () => manualSwitch(mode));
-    longBreakInput.addEventListener('change', () => manualSwitch(mode));
-    themeSelect.addEventListener('change', () => { document.body.className = themeSelect.value; });
+    durationInput.addEventListener('change', () => { saveSettings(); initDurations(); updateDisplay(); saveTimerState(); });
+    shortBreakInput.addEventListener('change', () => { saveSettings(); initDurations(); updateDisplay(); saveTimerState(); });
+    longBreakInput.addEventListener('change', () => { saveSettings(); initDurations(); updateDisplay(); saveTimerState(); });
+    themeSelect.addEventListener('change', () => { saveSettings(); document.body.className=themeSelect.value; });
+
+    // Init
+    loadSettings(); loadTasks(); loadTimer(); updateStatsDisplay();
   </script>
 </body>
 </html>
